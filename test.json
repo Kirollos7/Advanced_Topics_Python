@@ -1,0 +1,19 @@
+{
+    "firstName" : "Kirollos",
+    "lastName" : "Noshy",
+    "hobbies" : ["football", "Music" , "Video scribe"],
+    "age" : 21,
+    "Children" : 
+    [
+        {
+            "name": "John",
+            "age" : 5
+        },
+        {
+            "name": "Max",
+            "age": 10
+        }
+
+    ]
+}
+

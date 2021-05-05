@@ -1,67 +1,45 @@
+# x = -5
+# assert (x >= 0), 'X is not Positive'
 
-# def spin_words(sentence):
-#     # Your code goes here
-#     n = []
-#     s = sentence.split(' ')
-#     for i in s:
-#         if len(i) >=5:
-#             i[::-1]
-#             # n.append(g)
-#         # else:
-#             # n.append(i)
-#         # f = ' '.join(n)
-#     return s
+import time 
 
-# print(spin_words('Kirollos Noshy B all'))
+class ValueTooHighError(Exception):
+    pass
 
+class ValueTooSmallError(Exception):
+    def __init__(self, message, value):
+        self.message = message
+        self.value = value
 
+def test_value(x):
+    if x > 100:
+        raise ValueTooHighError('value is too high')
+    if x < 6:
+        raise ValueTooSmallError('value is too small', x)
+    
 
-
-# def to_weird_case(string):
-#     s = string.split(" ")
-#     n = []
-#     # r = [] 
-#     for i in s:
-#         for idx, val in enumerate(i):
-#             if idx%2 == 0:
-#                 s1 = val.upper()
-#                 n.append(s1)
-#             else:
-#                 n.append(val)
-#         n.append(' ')
-#         r = ''.join(n)
-#     return r
-
-   
+if __name__ == '__main__':
+    try:
+        test_value(5)
+    except ValueTooHighError as t:
+        print(t)
+    except ValueTooSmallError as e:
+        print(e)
+        print(e.message, e.value)
 
 
-# print(to_weird_case("Weird string case"))
-# print(to_weird_case("string"))
-# print(to_weird_case("ThIs"))
-
-
-
-
-# a = int(input())
-# b = int(input())
-# c = int(input())
-# m = max(a,b,c)
-# if m == a:
-#     print(1)
-# elif m == b:
-#     print(2)
+# try: 
+#     a = 5 / 1
+#     s = a + 4
+#     print(s)
+# except ZeroDivisionError as e:
+#     print(e)
+# except TypeError as d:
+#     print(d)
 # else:
-#     print(3)
+#     print('Everything is fine')
+#     print('loading....')
+#     time.sleep(5)
+# finally:
+#     print('Cleaning up...')
 
-
-a = int(input())
-b = int(input())
-k = int(input())
-if a%k==0 and b%k==0:
-    print('Both')
-elif a%k==0 and b%k!=0:
-    print('Memo')
-elif a%k!=0 and b%k==0:
-    print('Momo')
-else:
-    print('No One')
